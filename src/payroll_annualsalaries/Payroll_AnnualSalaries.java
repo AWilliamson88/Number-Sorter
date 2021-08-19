@@ -24,62 +24,54 @@ public class Payroll_AnnualSalaries {
 
         Scanner sc = new Scanner(System.in);
 
-// Must have a comparator.
-// Must list the advantages and disadvantages of each sorting method.
-        // List of random integers.
-// List of integers between 1 and 10,000,000.
-// At lease 100,000 Items in the list.
+        // Linked list for the payroll and the clone list for sorting.
         LinkedList<Integer> payroll = new LinkedList<>();
         LinkedList<Integer> clone = new LinkedList<>();
 
         Random rnd = new Random();
 
+        // Fill the payroll list with numbers between 1 and 10,000,000
         for (int i = 0; i <= 100000; i++) {
             payroll.add(rnd.nextInt(10000000) + 1);
         }
 
-        System.out.println("Finished");
+        // Get the using input and start the sorting process.
+        // uswer to decide  which sorting method they want to use.
+        System.out.println("Wilcome to the Payroll Sorting Application.\n"
+                + "For Built-In sort enter B.\n"
+                + "For Merge sort enter M.\n"
+                + "For Quick sort enter Q.");
+        // Get the user input
+        String response = sc.next();
 
-        try {
-// Payroll to decide  which sorting method they want to use.
-            System.out.println("Wilcome to the Payroll Sorting Application.\n"
-                    + "For Built-In sort enter B.\n"
-                    + "For Merge sort enter M.\n"
-                    + "For Quick sort enter Q.");
-
-            String response = sc.next();
-
-            switch (response) {
-                case "b":
-                case "B":
-                    System.out.println("Built-In");
-                    clone = (LinkedList) payroll.clone();
-                    BuiltInSort bi = new BuiltInSort(clone);
-                    bi.UseBuiltInSort();
-                    bi.display();
-                    break;
-                case "m":
-                case "M":
-                    System.out.println("Merge sort");
-                    MergeSort ms = new MergeSort();
-                    clone = (LinkedList) payroll.clone();
-                    ms.sort(clone);
-                    ms.display();
-                    break;
-                case "q":
-                case "Q":
-                    System.out.println("Quick Sort");
-                    QuickSort quickSort = new QuickSort();
-                    clone = (LinkedList) payroll.clone();
-                    quickSort.sort(clone);
-                    quickSort.display();
-                    break;
-                default:
-                    System.out.println("Please enter either B, M or Q.");
-                    break;
-            }
-        } catch (Exception e) {
-            System.out.println("There was an exception " + e);
+        switch (response) {
+            case "b":
+            case "B":
+                System.out.println("Built-In");
+                clone = (LinkedList) payroll.clone();
+                BuiltInSort bi = new BuiltInSort(clone);
+                bi.UseBuiltInSort();
+                bi.display();
+                break;
+            case "m":
+            case "M":
+                System.out.println("Merge sort");
+                MergeSort ms = new MergeSort();
+                clone = (LinkedList) payroll.clone();
+                ms.sort(clone);
+                ms.display();
+                break;
+            case "q":
+            case "Q":
+                System.out.println("Quick Sort");
+                QuickSort quickSort = new QuickSort();
+                clone = (LinkedList) payroll.clone();
+                quickSort.sort(clone);
+                quickSort.display();
+                break;
+            default:
+                System.out.println("Please enter either B, M or Q.");
+                break;
         }
     }
 }

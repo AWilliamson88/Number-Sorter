@@ -3,10 +3,21 @@ package payroll_annualsalaries;
 import java.util.*;
 
 /**
+ * Andrew Williamson / P113357 Date: 04/08/2021 Java 3 Assessment 2 Question 3 –
+ * You are required to make a list of different annual salaries for payroll in
+ * whole numbers (integers) that will then need to be sorted, you should have
+ * alternate methods of sorting so that payroll can decide on which method they
+ * would like to use. You need to create an application that creates lists of
+ * integers between 1 and 10 million. Your application must have the ability to
+ * sort in three different styles with timers to indicate the speed at which
+ * this happens you must have at least 100,000 items in your list as this the
+ * future business strategy to employ at least this many staff. The current
+ * system is only able to handle 12 staff. Only 1 sorting technique may use the
+ * inbuilt sorting the rest you must write yourself. In addition, you must list
+ * the advantages and disadvantages of each algorithm. Your sorting algorithm
+ * must have a comparator.
  *
- * @author Andrew
- * 
- * 
+ *
  * Merge Sort code by: 
  * https://favtutor.com/blogs/sorting-algorithms-java Date: 04/02/2021
  * Modifications by 
@@ -20,13 +31,14 @@ public class MergeSort {
 
     public MergeSort() {}
 
-    public void sort(LinkedList<Integer> sortList) {
+    // Where the sorting starts.
+    public void sort(LinkedList<Integer> unsortedList) {
 
-        if (!(sortList == null || sortList.isEmpty())) {
+        if (!(unsortedList == null || unsortedList.isEmpty())) {
             
             long start = System.nanoTime();
             
-            list = sortList;
+            setList(unsortedList);
             mergeSort(list, 0, list.size() - 1);
             
             // End the timer and set the sort time.
@@ -37,6 +49,7 @@ public class MergeSort {
 
     }
 
+    // Separates this list into sub lists.
     private void mergeSort(LinkedList<Integer> sortList, int left, int right) {
 
         int mid;
@@ -51,6 +64,7 @@ public class MergeSort {
 
     }
 
+    // Does the sorting and merging.
     private void merge(
             LinkedList<Integer> sortList, int left, int mid, int right) {
 
@@ -109,10 +123,12 @@ public class MergeSort {
         }
     }
     
-    public LinkedList<Integer> GetList() {
-        return list;
+    // Change sort time from nano seconds to miliseconds.
+    public static double toMilliseconds(long nanoseconds) {
+        return (double)nanoseconds / 1000000;
     }
     
+    // Display the sorted list and the time taken.
     public void display() {
         
         for (var e : GetList()) {
@@ -122,16 +138,19 @@ public class MergeSort {
         System.out.println("Merge sort Time: " + toMilliseconds(getSortTime()));
     }
     
+    // Accessors
+    public LinkedList<Integer> GetList() {
+        return list;
+    }
+    
+    public void setList(LinkedList<Integer> newList) {
+        list = newList;
+    }
+    
     private void setSortTime(long newSortTime) {
         sortTime = newSortTime;
     }
     private long getSortTime() {
         return sortTime;
     }
-    
-    // Change sort time from nano seconds to miliseconds.
-    public static double toMilliseconds(long nanoseconds) {
-        return (double)nanoseconds / 1000000;
-    }
-    
 }
