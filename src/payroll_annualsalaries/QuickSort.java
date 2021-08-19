@@ -25,7 +25,7 @@ public class QuickSort {
             // End the timer and set the sort time.
             long finish = System.nanoTime();
 
-            setSortTime(start - finish);
+            setSortTime(finish - start);
 
         }
 
@@ -86,10 +86,22 @@ public class QuickSort {
         for (var e : GetList()) {
             System.out.println(e);
         }
+        
+        System.out.println("Merge sort Time: " + toMilliseconds(getSortTime()));
+        
     }
 
+    // Method to 
     private void setSortTime(long newSortTime) {
         sortTime = newSortTime;
     }
-
+    
+ private long getSortTime() {
+        return sortTime;
+    }
+    
+    // Change sort time from nano seconds to miliseconds.
+    public static double toMilliseconds(long nanoseconds) {
+        return (double)nanoseconds / 1000000;
+    }
 }

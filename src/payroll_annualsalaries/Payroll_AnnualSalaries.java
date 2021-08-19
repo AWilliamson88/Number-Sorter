@@ -31,18 +31,15 @@ public class Payroll_AnnualSalaries {
 // At lease 100,000 Items in the list.
         LinkedList<Integer> payroll = new LinkedList<>();
         LinkedList<Integer> clone = new LinkedList<>();
-        
-        
-        
+
         Random rnd = new Random();
 
         for (int i = 0; i <= 20; i++) {
-            payroll.add(rnd.nextInt(10) + 1);
+            payroll.add(rnd.nextInt(1000) + 1);
         }
 
         System.out.println("Finished");
-        
-        
+
         try {
 // Payroll to decide  which sorting method they want to use.
             System.out.println("Wilcome to the Payroll Sorting Application.\n"
@@ -52,18 +49,15 @@ public class Payroll_AnnualSalaries {
 
             String response = sc.next();
 
-           
-            
-            
             switch (response) {
                 case "b":
                 case "B":
                     System.out.println("Built-In");
                     clone = (LinkedList) payroll.clone();
                     BuiltInSort bi = new BuiltInSort(clone);
-                    
+
                     bi.UseBuiltInSort();
-                    
+
                     bi.display();
                     break;
                 case "m":
