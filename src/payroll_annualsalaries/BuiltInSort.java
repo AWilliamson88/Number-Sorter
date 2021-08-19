@@ -21,10 +21,10 @@ import java.util.*;
  */
 public class BuiltInSort implements Comparator<Integer>{
 
-    private LinkedList<Integer> list;
+    private ArrayList<Integer> list;
     private static long sortTime; 
 
-    public BuiltInSort(LinkedList<Integer> newList) {
+    public BuiltInSort(ArrayList<Integer> newList) {
         list = newList;
     }
 
@@ -33,9 +33,8 @@ public class BuiltInSort implements Comparator<Integer>{
 
         // Start the timer.
          long start = System.nanoTime();
-
          
-        Collections.sort(GetList());
+        Collections.sort(getList());
         
         // End the timer and set the sort time.
         long finish = System.nanoTime();
@@ -44,33 +43,27 @@ public class BuiltInSort implements Comparator<Integer>{
     }
     
     // Change sort time from nano seconds to miliseconds.
-    public static double toMilliseconds(long nanoseconds) {
+    private static double toMilliseconds(long nanoseconds) {
         return (double)nanoseconds / 1000000;
     }
     
-    // Utterly pontly compare method just because the assessment asks for it.
+    // Utterly pointless compare method just because the assessment asks for it.
     @Override
     public int compare(Integer a, Integer b) {
-        
-        if (a < b) {
-            return -1;
-        } else if (a > b) {
-            return 1;
-        }
-        return 0; 
+        return Integer.compare(a, b); 
     }
 
     // Method to display the sorted list and the time taken.
     public void display() {
 
-        for (var e : GetList()) {
+        for (var e : getList()) {
             System.out.println(e);
         }
         System.out.println("Merge sort Time: " + toMilliseconds(getSortTime()));
     }
 
     // Accessors.
-    public LinkedList<Integer> GetList() {
+    public ArrayList<Integer> getList() {
         return list;
     }
     
@@ -81,6 +74,4 @@ public class BuiltInSort implements Comparator<Integer>{
     private long getSortTime() {
         return sortTime;
     }
-    
-    
 }

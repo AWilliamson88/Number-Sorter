@@ -20,7 +20,7 @@ import java.util.*;
  */
 public class QuickSort {
 
-    private LinkedList<Integer> list;
+    private ArrayList<Integer> list;
     private int length;
     private long sortTime;
 
@@ -29,7 +29,7 @@ public class QuickSort {
     }
 
     // Where the sorting starts.
-    public void sort(LinkedList<Integer> unsortedList) {
+    public void sort(ArrayList<Integer> unsortedList) {
 
         if (unsortedList != null || !unsortedList.isEmpty()) {
 
@@ -51,7 +51,7 @@ public class QuickSort {
         int i = low;
         int j = high;
 
-        LinkedList<Integer> sortList = GetList();
+        ArrayList<Integer> sortList = GetList();
         int pivot = sortList.get(low + (high - low) / 2);
 
         while (i <= j) {
@@ -82,7 +82,7 @@ public class QuickSort {
     // Does the swapping 
     private void exchange(int i, int j) {
 
-        LinkedList<Integer> sortList = GetList();
+        ArrayList<Integer> sortList = GetList();
 
         int temp = sortList.get(i);
         sortList.set(i, sortList.get(j));
@@ -90,7 +90,7 @@ public class QuickSort {
     }
 
     // Change sort time from nano seconds to miliseconds.
-    public static double toMilliseconds(long nanoseconds) {
+    private static double toMilliseconds(long nanoseconds) {
         return (double) nanoseconds / 1000000;
     }
 
@@ -104,11 +104,11 @@ public class QuickSort {
     }
 
     // Accessor
-    public LinkedList<Integer> GetList() {
+    public ArrayList<Integer> GetList() {
         return list;
     }
 
-    public void setList(LinkedList<Integer> newList) {
+    public void setList(ArrayList<Integer> newList) {
         list = newList;
     }
 
@@ -119,5 +119,4 @@ public class QuickSort {
     private long getSortTime() {
         return sortTime;
     }
-
 }

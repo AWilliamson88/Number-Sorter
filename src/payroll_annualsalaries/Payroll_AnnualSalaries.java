@@ -25,8 +25,8 @@ public class Payroll_AnnualSalaries {
         Scanner sc = new Scanner(System.in);
 
         // Linked list for the payroll and the clone list for sorting.
-        LinkedList<Integer> payroll = new LinkedList<>();
-        LinkedList<Integer> clone = new LinkedList<>();
+        ArrayList<Integer> payroll = new ArrayList<>();
+        ArrayList<Integer> clone = new ArrayList<>();
 
         Random rnd = new Random();
 
@@ -48,7 +48,7 @@ public class Payroll_AnnualSalaries {
             case "b":
             case "B":
                 System.out.println("Built-In");
-                clone = (LinkedList) payroll.clone();
+                clone = (ArrayList) payroll.clone();
                 BuiltInSort bi = new BuiltInSort(clone);
                 bi.UseBuiltInSort();
                 bi.display();
@@ -57,7 +57,7 @@ public class Payroll_AnnualSalaries {
             case "M":
                 System.out.println("Merge sort");
                 MergeSort ms = new MergeSort();
-                clone = (LinkedList) payroll.clone();
+                clone = (ArrayList) payroll.clone();
                 ms.sort(clone);
                 ms.display();
                 break;
@@ -65,7 +65,7 @@ public class Payroll_AnnualSalaries {
             case "Q":
                 System.out.println("Quick Sort");
                 QuickSort quickSort = new QuickSort();
-                clone = (LinkedList) payroll.clone();
+                clone = (ArrayList) payroll.clone();
                 quickSort.sort(clone);
                 quickSort.display();
                 break;

@@ -17,30 +17,29 @@ import java.util.*;
  * the advantages and disadvantages of each algorithm. Your sorting algorithm
  * must have a comparator.
  *
- *
  * Merge Sort code by: 
- * https://favtutor.com/blogs/sorting-algorithms-java Date: 04/02/2021
- * Modifications by 
- * Name: Andrew Williamson  Date: 14/08/2021
- * 
+ * https://www.withexample.com/merge-sort-using-arraylist-java-example/ 
+ * Date: 04/02/2021 
+ *
  */
 public class MergeSort {
 
-    private static LinkedList<Integer> list;
-    private static long sortTime; 
+    private static ArrayList<Integer> list;
+    private static long sortTime;
 
-    public MergeSort() {}
+    public MergeSort() {
+    }
 
     // Where the sorting starts.
-    public void sort(LinkedList<Integer> unsortedList) {
+    public void sort(ArrayList<Integer> unsortedList) {
 
         if (!(unsortedList == null || unsortedList.isEmpty())) {
-            
+
             long start = System.nanoTime();
-            
+
             setList(unsortedList);
-            mergeSort(list, 0, list.size() - 1);
-            
+            mergeSort(0, GetList().size() - 1);
+
             // End the timer and set the sort time.
             long finish = System.nanoTime();
 
@@ -50,106 +49,83 @@ public class MergeSort {
     }
 
     // Separates this list into sub lists.
-    private void mergeSort(LinkedList<Integer> sortList, int left, int right) {
+    private void mergeSort(int startIndex, int endIndex) {
 
-        int mid;
-        if (left < right) {
-            mid = (left + right) / 2;
+        if (startIndex < endIndex && (endIndex - startIndex) >= 1) {
 
-            mergeSort(sortList, left, mid);
-            mergeSort(sortList, mid + 1, right);
+            int mid = (endIndex + startIndex) / 2;
 
-            merge(sortList, left, mid, right);
+            mergeSort(startIndex, mid);
+            mergeSort(mid + 1, endIndex);
+
+            merge(startIndex, mid, endIndex);
         }
 
     }
 
     // Does the sorting and merging.
-    private void merge(
-            LinkedList<Integer> sortList, int left, int mid, int right) {
+    private void merge(int startIndex, int midIndex, int endIndex) {
 
-        int low = mid - left + 1;
-        int high = right - mid;
-        
-        LinkedList<Integer> l = new LinkedList<>();
-        LinkedList<Integer> r = new LinkedList<>();
-        int i = 0;
-        int j = 0;
-        
-        for (i = 0; i < low; i++) {
-            
-            if (i >= l.size()) {
-                l.add(i, sortList.get(left + i));
+        ArrayList<Integer> sortedArray = new ArrayList<>();
+
+        int leftIndex = startIndex;
+        int rightIndex = midIndex + 1;
+
+        while (leftIndex <= midIndex && rightIndex <= endIndex) {
+
+            if (GetList().get(leftIndex) <= GetList().get(rightIndex)) {
+                sortedArray.add(GetList().get(leftIndex));
+                leftIndex++;
             } else {
-             l.set(i, sortList.get(left + i));   
+                sortedArray.add(GetList().get(rightIndex));
+                rightIndex++;
             }
+        }
+
+        while (leftIndex <= midIndex) {
+            sortedArray.add(GetList().get(leftIndex));
+            leftIndex++;
+        }
+        while (rightIndex <= endIndex) {
+            sortedArray.add(GetList().get(rightIndex));
+            rightIndex++;
         }
         
-        for (j = 0; j < high; j++) {
-            
-            if (j >= r.size()) {
-                r.add(j, sortList.get(mid + 1 + j));
-            } else {
-                r.set(j, sortList.get(mid + 1 + j));
-            }
-        }
-        
-        int k = left;
-        i = 0;
-        j = 0;
-        
-        while (i < low && j < high) {
-            
-            if (l.get(i) <= r.get(j)) {
-                sortList.set(k, l.get(i));
-                i++;
-            }
-            else {
-                sortList.set(k, r.get(j));
-                j++;
-            }
-            
-            k++;
-        }
-        while (i < low) {
-            sortList.set(k, l.get(i));
-            i++;
-            k++;
-        }
-        while (j < high) {
-            sortList.set(k, r.get(j));
+        int j = startIndex;
+        for(int i = 0; i < sortedArray.size(); i++) {
+            GetList().set(j, sortedArray.get(i));
             j++;
-            k++;
         }
     }
-    
+
     // Change sort time from nano seconds to miliseconds.
-    public static double toMilliseconds(long nanoseconds) {
-        return (double)nanoseconds / 1000000;
+    private static double toMilliseconds(long nanoseconds) {
+        return (double) nanoseconds / 1000000;
     }
-    
+
     // Display the sorted list and the time taken.
     public void display() {
-        
+
         for (var e : GetList()) {
             System.out.println(e);
         }
 
         System.out.println("Merge sort Time: " + toMilliseconds(getSortTime()));
     }
-    
+
     // Accessors
-    public LinkedList<Integer> GetList() {
+    public ArrayList<Integer> GetList() {
         return list;
     }
-    
-    public void setList(LinkedList<Integer> newList) {
+
+    public void setList(ArrayList<Integer> newList) {
         list = newList;
     }
-    
+
     private void setSortTime(long newSortTime) {
         sortTime = newSortTime;
     }
+
     private long getSortTime() {
         return sortTime;
     }
