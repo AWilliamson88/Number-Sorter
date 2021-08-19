@@ -6,7 +6,7 @@ public class QuickSort {
 
     private LinkedList<Integer> list;
     private int length;
-    private long sortTime; // Need method to start the timer and method to stop the timer and return the time.
+    private long sortTime; 
 
     public QuickSort() {
 

@@ -16,8 +16,7 @@ import java.util.*;
 public class MergeSort {
 
     private static LinkedList<Integer> list;
-    private static long sortTime; // Need method to start the timer and method to stop the timer and return the time.
-
+    private static long sortTime; 
 
     public MergeSort() {}
 

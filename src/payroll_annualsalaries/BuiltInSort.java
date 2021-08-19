@@ -1,16 +1,16 @@
 package payroll_annualsalaries;
 
 import java.util.*;
-import static payroll_annualsalaries.MergeSort.toMilliseconds;
+
 
 /**
  *
  * @author Andrew
  */
-public class BuiltInSort {
+public class BuiltInSort implements Comparator<Integer>{
 
     private LinkedList<Integer> list;
-    private static long sortTime; // Need method to start the timer and method to stop the timer and return the time.
+    private static long sortTime; 
 
     public BuiltInSort(LinkedList<Integer> newList) {
         list = newList;
@@ -55,4 +55,15 @@ public class BuiltInSort {
     public static double toMilliseconds(long nanoseconds) {
         return (double)nanoseconds / 1000000;
     }
+    @Override
+    public int compare(Integer a, Integer b) {
+        
+        if (a < b) {
+            return -1;
+        } else if (a > b) {
+            return 1;
+        }
+        return 0; 
+    }
+    
 }

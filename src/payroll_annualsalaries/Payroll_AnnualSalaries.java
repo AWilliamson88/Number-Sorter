@@ -34,8 +34,8 @@ public class Payroll_AnnualSalaries {
 
         Random rnd = new Random();
 
-        for (int i = 0; i <= 20; i++) {
-            payroll.add(rnd.nextInt(1000) + 1);
+        for (int i = 0; i <= 100000; i++) {
+            payroll.add(rnd.nextInt(10000000) + 1);
         }
 
         System.out.println("Finished");
@@ -55,9 +55,7 @@ public class Payroll_AnnualSalaries {
                     System.out.println("Built-In");
                     clone = (LinkedList) payroll.clone();
                     BuiltInSort bi = new BuiltInSort(clone);
-
                     bi.UseBuiltInSort();
-
                     bi.display();
                     break;
                 case "m":
@@ -77,17 +75,11 @@ public class Payroll_AnnualSalaries {
                     quickSort.display();
                     break;
                 default:
-                    System.out.println("Please enter either A, M or Q.");
+                    System.out.println("Please enter either B, M or Q.");
                     break;
             }
         } catch (Exception e) {
             System.out.println("There was an exception " + e);
         }
-
-// Sort in Style one with timer.
-// Sort in style two with timer.
-// Sort in style three with timer.
-// Output the results.
     }
-
 }
