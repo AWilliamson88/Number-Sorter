@@ -37,41 +37,49 @@ public class Payroll_AnnualSalaries {
 
         // Get the using input and start the sorting process.
         // uswer to decide  which sorting method they want to use.
-        System.out.println("Wilcome to the Payroll Sorting Application.\n"
-                + "For Built-In sort enter B.\n"
-                + "For Merge sort enter M.\n"
-                + "For Quick sort enter Q.");
-        // Get the user input
-        String response = sc.next();
+        System.out.println("Wilcome to the Payroll Sorting Application.\n");
+        
+        String response;
+        do {
+            System.out.println("For Built-In sort enter B.\n"
+                    + "For Merge sort enter M.\n"
+                    + "For Quick sort enter Q.");
+            // Get the user input
+            response = sc.next();
+            
+            switch (response) {
+                case "b":
+                case "B":
+                    System.out.println("Built-In");
+                    clone = (ArrayList) payroll.clone();
+                    BuiltInSort bi = new BuiltInSort(clone);
+                    bi.UseBuiltInSort();
+                    bi.display();
+                    break;
+                case "m":
+                case "M":
+                    System.out.println("Merge sort");
+                    MergeSort ms = new MergeSort();
+                    clone = (ArrayList) payroll.clone();
+                    ms.sort(clone);
+                    ms.display();
+                    break;
+                case "q":
+                case "Q":
+                    System.out.println("Quick Sort");
+                    QuickSort quickSort = new QuickSort();
+                    clone = (ArrayList) payroll.clone();
+                    quickSort.sort(clone);
+                    quickSort.display();
+                    break;
+                default:
+                    break;
+            }
+            System.out.println();
+            
+        } while (response.equalsIgnoreCase("quit") != true);
 
-        switch (response) {
-            case "b":
-            case "B":
-                System.out.println("Built-In");
-                clone = (ArrayList) payroll.clone();
-                BuiltInSort bi = new BuiltInSort(clone);
-                bi.UseBuiltInSort();
-                bi.display();
-                break;
-            case "m":
-            case "M":
-                System.out.println("Merge sort");
-                MergeSort ms = new MergeSort();
-                clone = (ArrayList) payroll.clone();
-                ms.sort(clone);
-                ms.display();
-                break;
-            case "q":
-            case "Q":
-                System.out.println("Quick Sort");
-                QuickSort quickSort = new QuickSort();
-                clone = (ArrayList) payroll.clone();
-                quickSort.sort(clone);
-                quickSort.display();
-                break;
-            default:
-                System.out.println("Please enter either B, M or Q.");
-                break;
-        }
+        System.out.println("Thank you for using The Payroll Sorting Application.");
+        System.out.println("Have a nice day.");
     }
 }

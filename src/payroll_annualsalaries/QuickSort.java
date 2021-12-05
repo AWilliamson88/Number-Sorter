@@ -100,7 +100,7 @@ public class QuickSort {
         for (var e : GetList()) {
             System.out.println(e);
         }
-        System.out.println("Merge sort Time: " + toMilliseconds(getSortTime()));
+        System.out.println("Quick sort Time: " + toMilliseconds(getSortTime()));
     }
 
     // Accessor

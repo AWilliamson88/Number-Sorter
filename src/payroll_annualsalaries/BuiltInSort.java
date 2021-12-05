@@ -59,7 +59,7 @@ public class BuiltInSort implements Comparator<Integer>{
         for (var e : getList()) {
             System.out.println(e);
         }
-        System.out.println("Merge sort Time: " + toMilliseconds(getSortTime()));
+        System.out.println("Built-in sort Time: " + toMilliseconds(getSortTime()));
     }
 
     // Accessors.
