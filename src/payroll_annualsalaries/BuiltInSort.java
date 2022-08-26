@@ -12,7 +12,7 @@ import java.util.*;
  * integers between 1 and 10 million. Your application must have the ability to
  * sort in three different styles with timers to indicate the speed at which
  * this happens you must have at least 100,000 items in your list as this the
- * future business strategy to employ at least this many staff. The current
+ * future business strategy to employ at least this many staff members. The current
  * system is only able to handle 12 staff. Only 1 sorting technique may use the
  * inbuilt sorting the rest you must write yourself. In addition, you must list
  * the advantages and disadvantages of each algorithm. Your sorting algorithm
@@ -42,12 +42,12 @@ public class BuiltInSort implements Comparator<Integer>{
         setSortTime(finish - start);
     }
     
-    // Change sort time from nano seconds to miliseconds.
+    // Change sort time from nanoseconds to milliseconds.
     private static double toMilliseconds(long nanoseconds) {
         return (double)nanoseconds / 1000000;
     }
     
-    // Utterly pointless compare method just because the assessment asks for it.
+    // Overridden compare method.
     @Override
     public int compare(Integer a, Integer b) {
         return Integer.compare(a, b); 
@@ -59,7 +59,7 @@ public class BuiltInSort implements Comparator<Integer>{
         for (var e : getList()) {
             System.out.println(e);
         }
-        System.out.println("Built-in sort Time: " + toMilliseconds(getSortTime()));
+        System.out.println("Built-in sort Time: " + toMilliseconds(getSortTime()) + " milliseconds.");
     }
 
     // Accessors.

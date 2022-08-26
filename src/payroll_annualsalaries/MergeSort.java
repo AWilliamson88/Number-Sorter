@@ -17,10 +17,6 @@ import java.util.*;
  * the advantages and disadvantages of each algorithm. Your sorting algorithm
  * must have a comparator.
  *
- * Merge Sort code by: 
- * https://www.withexample.com/merge-sort-using-arraylist-java-example/ 
- * Date: 04/02/2021 
- *
  */
 public class MergeSort {
 
@@ -110,7 +106,7 @@ public class MergeSort {
             System.out.println(e);
         }
 
-        System.out.println("Merge sort Time: " + toMilliseconds(getSortTime()));
+        System.out.println("Merge sort Time: " + toMilliseconds(getSortTime()) + " milliseconds.");
     }
 
     // Accessors
