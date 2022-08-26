@@ -24,8 +24,8 @@ A company needs a new system to sort their payroll, and the ability to choose be
  
 ## Screenshots
 
-![Payroll sorter](Images/ProgramStart.png?raw=true "Display when the program starts")
+>![Payroll sorter](Images/ProgramStart.png?raw=true "Display when the program starts")
 
-![Payroll sorter](Images/AfterSorting-01.png?raw=true "After using the Built-in sorting method")
+>![Payroll sorter](Images/AfterSorting-01.png?raw=true "After using the Built-in sorting method")
 
-![Payroll sorter](Images/AfterSorting-02.png?raw=true "After using the Quicksort sorting method")
+>![Payroll sorter](Images/AfterSorting-02.png?raw=true "After using the Quicksort sorting method")
