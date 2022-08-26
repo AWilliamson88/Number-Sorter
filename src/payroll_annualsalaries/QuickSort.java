@@ -3,19 +3,25 @@ package payroll_annualsalaries;
 import java.util.*;
 
 /**
- * Andrew Williamson / P113357 Date: 04/08/2021 Java 3 Assessment 2 Question 3 –
+ * Andrew Williamson / P113357 
+ * Date: 04/08/2021 
+ * Java 3 Assessment 2 Question 3 –
+ * 
  * You are required to make a list of different annual salaries for payroll in
- * whole numbers (integers) that will then need to be sorted, you should have
- * alternate methods of sorting so that payroll can decide on which method they
- * would like to use. You need to create an application that creates lists of
- * integers between 1 and 10 million. Your application must have the ability to
- * sort in three different styles with timers to indicate the speed at which
- * this happens you must have at least 100,000 items in your list as this the
- * future business strategy to employ at least this many staff. The current
- * system is only able to handle 12 staff. Only 1 sorting technique may use the
- * inbuilt sorting the rest you must write yourself. In addition, you must list
- * the advantages and disadvantages of each algorithm. Your sorting algorithm
- * must have a comparator.
+ * whole numbers that will then need to be sorted, 
+ * You should have alternate methods of sorting so that payroll can decide 
+ *  on which method they would like to use.
+ * 
+ * Requirements:
+ * You need to create an application that creates lists of integers 
+ *  between 1 and 10 million. 
+ * Sort in three different styles with timers to indicate the speed at which
+ *  this happens. 
+ * You must have at least 100,000 items in your list as the future business 
+ *  strategy is to employ at least this many staff. 
+ * Your sorting algorithm must have a comparator.
+ * 1 sorting technique should use the inbuilt sorting the rest you 
+ *  must write yourself. 
  *
  */
 public class QuickSort {
@@ -115,7 +121,7 @@ public class QuickSort {
     private void setSortTime(long newSortTime) {
         sortTime = newSortTime;
     }
-    
+
     private long getSortTime() {
         return sortTime;
     }
